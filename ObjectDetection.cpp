@@ -1,7 +1,7 @@
 #define NOMINMAX
 
 #include "ObjectDetection.h"
-#include "..\ObjectDetIncludes.h"
+#include "..\\ObjectDetIncludes.h"
 #include <Windows.h>
 #include <time.h>
 #include <fstream>
@@ -1617,6 +1617,7 @@ void ObjectDetection::setFilenames() {
 }
 
 void ObjectDetection::setupLiDAR() {
+    log("setupLiDAR in ObjectDetection.cpp!");
     if (pointclouds && !lidar_initialized) //flag if activate the LiDAR
     {
         //Specs on Velodyne HDL-64E
@@ -1715,7 +1716,10 @@ void ObjectDetection::setStencilBuffer() {
 
     std::vector<int> stencilValues;
     log("After writing stencil buffer");
+    log("height: "+std::to_string((s_camParams.height)));
+    log("width: " + std::to_string((s_camParams.width)));
     for (int j = 0; j < s_camParams.height; ++j) {
+        //log("j: " + std::to_string((j)));
         for (int i = 0; i < s_camParams.width; ++i) {
             uint8_t val = m_pStencil[j * s_camParams.width + i];
             uint8_t* p = m_pStencilImage + (j * s_camParams.width) + i;
@@ -1744,7 +1748,7 @@ void ObjectDetection::setStencilBuffer() {
             }
         }
     }
-
+    
     if (OUTPUT_STENCIL_IMAGE) {
         log("Before saving stencil image");
         std::vector<std::uint8_t> ImageBuffer;
@@ -2227,6 +2231,7 @@ void ObjectDetection::printSegImage() {
 }
 
 void ObjectDetection::initVehicleLookup() {
+    log("initVehicleLooklup() in ObjectDetection.cpp");
     if (!m_vLookupInit) {
         std::string translationFile = std::string(getenv("DEEPGTAV_DIR")) + "\\ObjectDet\\vehicle_labels.csv";
         std::ifstream inFile(translationFile);

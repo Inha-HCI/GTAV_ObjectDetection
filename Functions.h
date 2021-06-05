@@ -1,13 +1,13 @@
-#include "..\ObjectDetIncludes.h"
+#include "..\\ObjectDetIncludes.h"
 #include <Eigen/Core>
 #include "Constants.h"
 
 #pragma once
 
 static char* logDir = getenv("DEEPGTAV_LOG_FILE");
-static bool LOGGING = false;
+static bool LOGGING = true;
 static bool DEBUG_LOGGING = false;
-static void log(std::string str, bool override = false) {
+static void log(std::string str, bool override = true) {
     if ((override || LOGGING) && logDir != NULL) {
         FILE* f = fopen(logDir, "a");
         fprintf(f, str.c_str());
