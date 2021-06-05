@@ -324,8 +324,9 @@ float * LiDAR::GetPointClouds(int &size, std::unordered_map<int, HitLidarEntity*
         //log("Trying to generate pointcloud");
         float phi = m_vertiUnLimit;
         int horizBeamCount = 0;
-        for (int k = 0; k < m_vertiSmplNum; k++)
+        for (int k = 0; k <= m_vertiSmplNum; k++)
         {
+            if (k < 1) continue; // JM edition
             if (phi > m_vertiUpLimit - m_vertiResolu)
                 phi = m_vertiUnLimit - k * m_vertiResolu;
             else

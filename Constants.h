@@ -28,7 +28,7 @@ const float BBOX_ADJUSTMENT_FACTOR = 1.1f;
 //Use the same time of day throughout the collection process
 const bool SAME_TIME_OF_DAY = true;
 //Drive in specified area or wander entire map
-const bool DRIVE_SPEC_AREA = true;
+const bool DRIVE_SPEC_AREA = false; // true -> false JM
 const bool START_SPEC_AREA = true;
 
 //Some settings for testing pointcloud generation
@@ -62,7 +62,7 @@ const bool OUTPUT_ADJUSTED_POINTS = false;
 //2d points will be shrunk with stencil cull
 const bool CORRECT_2D_POINTS_BEHIND_CAMERA = false;
 
-const bool LIDAR_GAUSSIAN_NOISE = true;
+const bool LIDAR_GAUSSIAN_NOISE = false; //true //lidar added noise
 const double DEPTH_NOISE_STDDEV = 0.006;//3 standard deviations is approximately 2cm
 const double DEPTH_NOISE_MEAN = 0.0;
 

@@ -1624,7 +1624,7 @@ void ObjectDetection::setupLiDAR() {
         //0.09f azimuth resolution
         //26.8 vertical fov (+2 degrees up to -24.8 degrees down)
         //0.420 vertical resolution
-        lidar.Init3DLiDAR_FOV(MAX_LIDAR_DIST, 90.0f, 0.09f, 26.9f, 6.72f, 2.0f); //0.420f -> 6.72f
+        lidar.Init3DLiDAR_FOV(MAX_LIDAR_DIST, 90.0f, 0.09f, 21.52f, 4.30f, 2.0f); // 4th param : 26.9f -> 21.52,5th param : 0.420f -> 4.30f  --JM
         lidar.AttachLiDAR2Camera(camera, ped);
         lidar_initialized = true;
         m_pDMPointClouds = (float *)malloc(s_camParams.width * s_camParams.height * FLOATS_PER_POINT * sizeof(float));
